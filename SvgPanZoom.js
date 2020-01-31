@@ -202,7 +202,7 @@ export default class SvgPanZoom extends Component {
                     return;
                 }
                 //Child element events are bubbled up but are not valid in out context. Sort them out
-                if (evt.target !== this.prTargetSelf && evt.target !== this.prTargetOuter) {
+                if (this.props.watchEventTarget && evt.target !== this.prTargetSelf && evt.target !== this.prTargetOuter) {
                     this.dropNextEvt++;
                     return;
                 }
@@ -266,5 +266,6 @@ SvgPanZoom.defaultProps = {
     initialZoom: 0.7,
     canvasStyle: {},
     viewStyle: {},
+    watchEventTarget: true,
     onZoom: (zoom) => { },
 };
