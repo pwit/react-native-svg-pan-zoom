@@ -14,6 +14,8 @@ class SvgPanZoom extends react_1.Component {
         this.dropNextEvt = 0;
         // Utils
         this._onLayout = (event) => {
+            let _t = this;
+
             this.mainViewRef.measure((x, y, w, h, pageX, pageY) => {
                 this.setState({
                     viewDimensions: {
@@ -25,8 +27,8 @@ class SvgPanZoom extends react_1.Component {
                     layoutKnown: true,
                 });
 
-                if(this.props.onLayoutKnown) {
-                    this.props.onLayoutKnown();
+                if(_t.props.onLayoutKnown) {
+                    _t.props.onLayoutKnown();
                 }
             });
         };
