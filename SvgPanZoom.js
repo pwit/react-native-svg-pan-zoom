@@ -23,6 +23,10 @@ export default class SvgPanZoom extends Component {
                     },
                     layoutKnown: true,
                 });
+
+                if(this.props.onLayoutKnown) {
+                    this.props.onLayoutKnown();
+                }
             });
         };
         this.zoomToPoint = (x, y, scale, duration = 700) => {
@@ -267,5 +271,6 @@ SvgPanZoom.defaultProps = {
     canvasStyle: {},
     viewStyle: {},
     watchEventTarget: true,
+    onLayoutKnown: () => { },
     onZoom: (zoom) => { },
 };
