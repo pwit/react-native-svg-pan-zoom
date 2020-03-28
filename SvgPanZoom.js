@@ -241,7 +241,7 @@ export default class SvgPanZoom extends Component {
                 alignItems: 'flex-start',
             },
             viewStyle
-        ])} onLayout={this._onLayout} {...this.prInstance.panHandlers}>
+        ])} onLayout={this._onLayout.bind(this)} {...this.prInstance.panHandlers}>
 
         <Animated.View style={Object.assign({ width: canvasWidth, height: canvasHeight, transform: [
                 { translateX: this.state.TranslationAnimation.x },

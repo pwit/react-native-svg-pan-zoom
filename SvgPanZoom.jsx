@@ -24,6 +24,10 @@ class SvgPanZoom extends react_1.Component {
                     },
                     layoutKnown: true,
                 });
+
+                if(this.props.onLayoutKnown) {
+                    this.props.onLayoutKnown();
+                }
             });
         };
         this.zoomToPoint = (x, y, scale, duration = 700) => {
